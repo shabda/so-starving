@@ -15,3 +15,4 @@ We have the same app in these frameworks.
 * [bottle](http://bottle.paws.de/docs/dev/index.html)
 * [itty](http://toastdriven.com/fresh/itty-sinatra-inspired-micro-framework/)
 * [django](http://djangoproject.com/)
+* [web2py](http://web2py.com/)
