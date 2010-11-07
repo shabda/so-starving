@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+
+<ul>
+  {{ for post in data: }}
+  <li>
+    <div>
+      <div class="picture">
+        <img src="https://graph.facebook.com/{{=post['from']['id']}}/picture" />
+      </div>
+      <div class="message">
+        {{=post['message']}} : <span class="author">{{=post['from']['name']}}</span>
+      </div>
+    </div>   
+  </li>
+  {{ pass }}
+</ul>

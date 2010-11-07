@@ -1,0 +1,442 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/Users/mdipierro/web2py/applications/fmld/controllers/default.py'
+p4
+sS'code'
+p5
+S'# -*- coding: utf-8 -*- \n\n#########################################################################\n## This is a samples controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n## - call exposes all registered services (none by default)\n#########################################################################\n\ndef index():\n    from gluon.contrib.simplejson import loads\n    endpoint=\'http://graph.facebook.com/search?q="so%20starving&type=post\'\n    def get_data(): return loads(urllib.urlopen(endpoint).read())[\'data\']\n    data = cache.ram(key=fml_endpoint,get_data,30*60)\n    return dict(data=data)\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login \n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request,db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    session.forget()\n    return service()\n\n\n\nresponse._vars=response._caller(index)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__getslice__'
+p11
+S"<method-wrapper '__getslice__' of exceptions.SyntaxError object at 0x737d30>"
+p12
+sS'text'
+p13
+S"'data = cache.ram(key=fml_endpoint,get_data,30*60)\\n'"
+p14
+sS'__str__'
+p15
+S"<method-wrapper '__str__' of exceptions.SyntaxError object at 0x737d30>"
+p16
+sS'__reduce__'
+p17
+S'<built-in method __reduce__ of exceptions.SyntaxError object at 0x737d30>'
+p18
+sS'__dict__'
+p19
+S'{}'
+p20
+sS'__init__'
+p21
+S"<method-wrapper '__init__' of exceptions.SyntaxError object at 0x737d30>"
+p22
+sS'__setattr__'
+p23
+S"<method-wrapper '__setattr__' of exceptions.SyntaxError object at 0x737d30>"
+p24
+sS'__reduce_ex__'
+p25
+S'<built-in method __reduce_ex__ of exceptions.SyntaxError object at 0x737d30>'
+p26
+sS'__new__'
+p27
+S'<built-in method __new__ of type object at 0xdc200>'
+p28
+sS'__class__'
+p29
+S"<type 'exceptions.SyntaxError'>"
+p30
+sS'filename'
+p31
+S"'/Users/mdipierro/web2py/applications/fmld/controllers/default.py'"
+p32
+sS'lineno'
+p33
+S'15'
+p34
+sS'msg'
+p35
+S"'non-keyword arg after keyword arg'"
+p36
+sS'__doc__'
+p37
+S"'Invalid syntax.'"
+p38
+sS'__getitem__'
+p39
+S"<method-wrapper '__getitem__' of exceptions.SyntaxError object at 0x737d30>"
+p40
+sS'__setstate__'
+p41
+S'<built-in method __setstate__ of exceptions.SyntaxError object at 0x737d30>'
+p42
+sS'__getattribute__'
+p43
+S"<method-wrapper '__getattribute__' of exceptions.SyntaxError object at 0x737d30>"
+p44
+sS'print_file_and_line'
+p45
+S'None'
+p46
+sS'args'
+p47
+S"('non-keyword arg after keyword arg', ('/Users/mdipierro/web2py/applications/fmld/controllers/default.py', 15, None, 'data = cache.ram(key=fml_endpoint,get_data,30*60)\\n'))"
+p48
+sS'offset'
+p49
+S'None'
+p50
+sS'__delattr__'
+p51
+S"<method-wrapper '__delattr__' of exceptions.SyntaxError object at 0x737d30>"
+p52
+sS'__repr__'
+p53
+S"<method-wrapper '__repr__' of exceptions.SyntaxError object at 0x737d30>"
+p54
+sS'__hash__'
+p55
+S"<method-wrapper '__hash__' of exceptions.SyntaxError object at 0x737d30>"
+p56
+ssS'evalue'
+p57
+S'non-keyword arg after keyword arg (default.py, line 15)'
+p58
+sS'request'
+p59
+(dp60
+S'function'
+p61
+S"'index'"
+p62
+sS'body'
+p63
+S'<cStringIO.StringO object at 0x23989c0>'
+p64
+sS'wsgi'
+p65
+S"<Storage {'start_response': <function <lambda> a...ING': 'gzip,deflate', 'HTTP_KEEP_ALIVE': '115'}}>"
+p66
+sS'extension'
+p67
+S"'html'"
+p68
+sS'vars'
+p69
+S'<Storage {}>'
+p70
+sS'cid'
+p71
+S'None'
+p72
+sS'url'
+p73
+S'<gluon.html.XML object at 0x2398930>'
+p74
+sg47
+S'[]'
+p75
+sS'controller'
+p76
+S"'default'"
+p77
+sS'cookies'
+p78
+S"<SimpleCookie: session_id_a6='127-0-0-1-45a806dd...'127-0-0-1-0e22c263-6ab2-4417-82c7-b046f6fa0aea'>"
+p79
+sS'application'
+p80
+S"'fmld'"
+p81
+sS'ajax'
+p82
+S'False'
+p83
+sS'client'
+p84
+S"'127.0.0.1'"
+p85
+sS'env'
+p86
+S"<Storage {'http_user_agent': 'Mozilla/5.0 (Macin...te', 'query_string': '', 'wsgi_run_once': False}>"
+p87
+sS'raw_args'
+p88
+S'None'
+p89
+sS'get_vars'
+p90
+S'<Storage {}>'
+p91
+sS'folder'
+p92
+S"'/Users/mdipierro/web2py/applications/fmld/'"
+p93
+sS'now'
+p94
+S'datetime.datetime(2010, 11, 7, 10, 37, 7, 617688)'
+p95
+sS'post_vars'
+p96
+S'<Storage {}>'
+p97
+ssS'frames'
+p98
+(lp99
+(dp100
+S'file'
+p101
+S'/Users/mdipierro/web2py/gluon/restricted.py'
+p102
+sS'dump'
+p103
+(dp104
+S'code'
+p105
+S"'# -*- coding: utf-8 -*- \\n\\n######################...vice()\\n\\n\\n\\nresponse._vars=response._caller(index)\\n'"
+p106
+sS'layer'
+p107
+S"'/Users/mdipierro/web2py/applications/fmld/controllers/default.py'"
+p108
+sS'global compile2'
+p109
+S'<function compile2 at 0x43f2f0>'
+p110
+sS'ccode'
+p111
+S'undefined'
+p112
+ssS'lnum'
+p113
+I186
+sS'lines'
+p114
+(dp115
+I181
+S''
+sI182
+S'    try:'
+p116
+sI183
+S'        if type(code) == types.CodeType:'
+p117
+sI184
+S'            ccode = code'
+p118
+sI185
+S'        else:'
+p119
+sI186
+S'            ccode = compile2(code,layer)'
+p120
+sI187
+S''
+sI188
+S'        exec ccode in environment'
+p121
+sI189
+S'    except HTTP:'
+p122
+sI190
+S'        raise'
+p123
+ssS'call'
+p124
+S"(code='# -*- coding: utf-8 -*- \\n\\n######################...vice()\\n\\n\\n\\nresponse._vars=response._caller(index)\\n', environment={'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}, layer='/Users/mdipierro/web2py/applications/fmld/controllers/default.py')"
+p125
+sS'func'
+p126
+S'restricted'
+p127
+sa(dp128
+g101
+S'/Users/mdipierro/web2py/gluon/restricted.py'
+p129
+sg103
+(dp130
+S'builtincompile'
+p131
+S'<built-in function compile>'
+p132
+sS'code'
+p133
+S"'# -*- coding: utf-8 -*- \\n\\n######################...vice()\\n\\n\\n\\nresponse._vars=response._caller(index)\\n'"
+p134
+sS'code.rstrip'
+p135
+S'<built-in method rstrip of str object at 0xa05600>'
+p136
+sS').replace'
+p137
+g112
+sS'layer'
+p138
+S"'/Users/mdipierro/web2py/applications/fmld/controllers/default.py'"
+p139
+ssg113
+I173
+sg114
+(dp140
+I168
+S''
+sI169
+S'def compile2(code,layer):'
+p141
+sI170
+S'    """'
+p142
+sI171
+S"    The +'\\n' is necessary else compile fails when code ends in a comment."
+p143
+sI172
+S'    """'
+p144
+sI173
+S"    return compile(code.rstrip().replace('\\r\\n','\\n')+'\\n', layer, 'exec')"
+p145
+sI174
+S''
+sI175
+S"def restricted(code, environment={}, layer='Unknown'):"
+p146
+sI176
+S'    """'
+p147
+sI177
+S'    runs code in environment and returns the output. if an exception occurs'
+p148
+ssg124
+S"(code='# -*- coding: utf-8 -*- \\n\\n######################...vice()\\n\\n\\n\\nresponse._vars=response._caller(index)\\n', layer='/Users/mdipierro/web2py/applications/fmld/controllers/default.py')"
+p149
+sg126
+S'compile2'
+p150
+sasS'pyver'
+p151
+S'Python 2.5.4: /usr/bin/python2.5'
+p152
+sS'session'
+p153
+(dp154
+S'auth'
+p155
+S'None'
+p156
+ssS'etype'
+p157
+S"<type 'exceptions.SyntaxError'>"
+p158
+sS'date'
+p159
+S'Sun Nov  7 10:37:07 2010'
+p160
+sS'response'
+p161
+(dp162
+S'status'
+p163
+S'200'
+p164
+sg63
+S'<cStringIO.StringO object at 0x2398900>'
+p165
+sg78
+S"<SimpleCookie: session_id_fmld='127-0-0-1-c0ab8c9a-2e3f-4c32-8608-e4b12cc1ad47'>"
+p166
+sS'_vars'
+p167
+S'None'
+p168
+sS'title'
+p169
+S"'fmld'"
+p170
+sS'menu'
+p171
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object at 0x736eb0>, []), (<lazyT 'This App'>, False, <gluon.html.XML object at 0x736ef0>, [(<lazyT 'Controller'>, False, <gluon.html.XML object at 0x736f90>), (<lazyT 'View'>, False, <gluon.html.XML object at 0x736ff0>), (<lazyT 'Layout'>, False, <gluon.html.XML object at 0x736b30>), (<lazyT 'Stylesheet'>, False, <gluon.html.XML object at 0x736b50>), (<lazyT 'DB Model'>, False, <gluon.html.XML object at 0x736c90>), (<lazyT 'Menu Model'>, False, <gluon.html.XML object at 0x736c30>), (<lazyT 'Database'>, False, <gluon.html.XML object at 0x736c50>), (<lazyT 'Errors'>, False, <gluon.html.XML object at 0x736cf0>), (<lazyT 'About'>, False, <gluon.html.XML object at 0x736d30>)]), (<lazyT 'Resources'>, False, None, [(<lazyT 'Documentation'>, False, 'http://www.web2py.com/book', [(<lazyT 'Preface'>, False, 'http://www.web2py.com/book/default/chapter/00'), (<lazyT 'Introduction'>, False, 'http://www.web2py.com/book/default/chapter/01'), (<lazyT 'Python'>, False, 'http://www.web2py.com/book/default/chapter/02'), (<lazyT 'Overview'>, False, 'http://www.web2py.com/book/default/chapter/03'), (<lazyT 'The Core'>, False, 'http://www.web2py.com/book/default/chapter/04'), (<lazyT 'The Views'>, False, 'http://www.web2py.com/book/default/chapter/05'), (<lazyT 'Database'>, False, 'http://www.web2py.com/book/default/chapter/06'), (<lazyT 'Forms and Validators'>, False, 'http://www.web2py.com/book/default/chapter/07'), (<lazyT 'Access Control'>, False, 'http://www.web2py.com/book/default/chapter/08'), (<lazyT 'Services'>, False, 'http://www.web2py.com/book/default/chapter/09'), (<lazyT 'Ajax Recipes'>, False, 'http://www.web2py.com/book/default/chapter/10'), (<lazyT 'Deployment Recipes'>, False, 'http://www.web2py.com/book/default/chapter/11'), (<lazyT 'Other Recipes'>, False, 'http://www.web2py.com/book/default/chapter/12'), (<lazyT 'Buy this book'>, False, 'http://stores.lulu.com/web2py')]), (<lazyT 'Community'>, False, None, [(<lazyT 'Groups'>, False, 'http://www.web2py.com/examples/default/usergroups'), (<lazyT 'Twitter'>, False, 'http://twitter.com/web2py'), (<lazyT 'Live chat'>, False, 'http://mibbit.com/?channel=%23web2py&server=irc.mibbit.net'), (<lazyT 'User Voice'>, False, 'http://web2py.uservoice.com/')]), (<lazyT 'Web2py'>, False, 'http://www.web2py.com', [(<lazyT 'Download'>, False, 'http://www.web2py.com/examples/default/download'), (<lazyT 'Support'>, False, 'http://www.web2py.com/examples/default/support'), (<lazyT 'Quick Examples'>, False, 'http://web2py.com/examples/default/examples'), (<lazyT 'FAQ'>, False, 'http://web2py.com/AlterEgo'), (<lazyT 'Free Applications'>, False, 'http://web2py.com/appliances'), (<lazyT 'Plugins'>, False, 'http://web2py.com/plugins'), (<lazyT 'Recipes'>, False, 'http://web2pyslices.com/'), (<lazyT 'Demo'>, False, 'http://web2py.com/demo_admin'), (<lazyT 'Semantic'>, False, 'http://web2py.com/semantic'), (<lazyT 'Layouts'>, False, 'http://web2py.com/layouts'), (<lazyT 'Videos'>, False, 'http://www.web2py.com/examples/default/videos/')])])]"
+p172
+sS'flash'
+p173
+S"''"
+p174
+sS'session_new'
+p175
+S'True'
+p176
+sS'_custom_rollback'
+p177
+S'None'
+p178
+sS'session_id'
+p179
+S"'127-0-0-1-c0ab8c9a-2e3f-4c32-8608-e4b12cc1ad47'"
+p180
+sS'headers'
+p181
+S"<Storage {'Expires': 'Sun, 07 Nov 2010 16:37:07 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p182
+sS'meta'
+p183
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p184
+sS'session_filename'
+p185
+S"'/Users/mdipierro/web2py/applications/fmld/sessions/127-0-0-1-c0ab8c9a-2e3f-4c32-8608-e4b12cc1ad47'"
+p186
+sS'postprocessing'
+p187
+S'[]'
+p188
+sS'_caller'
+p189
+S'<function <lambda> at 0x23750f0>'
+p190
+sS'_view_environment'
+p191
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p192
+sS'subtitle'
+p193
+S"<lazyT 'customize me!'>"
+p194
+sS'session_id_name'
+p195
+S"'session_id_fmld'"
+p196
+sS'_custom_commit'
+p197
+S'None'
+p198
+sS'files'
+p199
+S'[]'
+p200
+sS'view'
+p201
+S"'default/index.html'"
+p202
+ssS'locals'
+p203
+(dp204
+g3
+S"'/Users/mdipierro/web2py/applications/fmld/controllers/default.py'"
+p205
+sg5
+S"'# -*- coding: utf-8 -*- \\n\\n######################...vice()\\n\\n\\n\\nresponse._vars=response._caller(index)\\n'"
+p206
+sssS'traceback'
+p207
+S'Traceback (most recent call last):\n  File "/Users/mdipierro/web2py/gluon/restricted.py", line 186, in restricted\n    ccode = compile2(code,layer)\n  File "/Users/mdipierro/web2py/gluon/restricted.py", line 173, in compile2\n    return compile(code.rstrip().replace(\'\\r\\n\',\'\\n\')+\'\\n\', layer, \'exec\')\n  File "/Users/mdipierro/web2py/applications/fmld/controllers/default.py", line 15\n    data = cache.ram(key=fml_endpoint,get_data,30*60)\nSyntaxError: non-keyword arg after keyword arg\n'
+p208
+s.

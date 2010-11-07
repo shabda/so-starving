@@ -1,0 +1,943 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/Users/mdipierro/web2py/applications/fmld/views/default/index.html'
+p4
+sS'code'
+p5
+S'response.write(\'<!DOCTYPE html>\\n<html lang="\', escape=False)\nresponse.write(T.accepted_language or \'en\')\nresponse.write(\'" class="no-js"><!-- no-js need it for modernzr -->\\n  <head>\\n    \\n    <meta charset="utf-8" />\\t  \\t\\n    <!-- www.phpied.com/conditional-comments-block-downloads/ -->\\n    <!--[if IE]><![endif]-->    \\n    <!-- Always force latest IE rendering engine \\n\\t (even in intranet) & Chrome Frame \\n\\t Remove this if you use the .htaccess -->\\n    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">\\n    \\n    <title>\', escape=False)\nresponse.write(response.title or request.application)\nresponse.write(\'</title>\\n    \\n    <!-- http://dev.w3.org/html5/markup/meta.name.html -->\\n    <meta name="application-name" content="\', escape=False)\nresponse.write(request.application)\nresponse.write(\'" />\\t\\n    \\n    <!-- Speaking of Google, don\\\'t forget to set your site up: \\n\\t http://google.com/webmasters -->\\n    <meta name="google-site-verification" content="" />\\n    \\n    <!--  Mobile Viewport Fix\\n\\t  j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag \\n\\t  device-width: Occupy full width of the screen in its current orientation\\n\\t  initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height\\n\\t  maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width\\n      -->\\n    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">\\n    \\n    <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->\\n    <link rel="shortcut icon" href="\', escape=False)\nresponse.write(URL(request.application,\'static\',\'favicon.ico\'))\nresponse.write(\'" type="image/x-icon">\\n    <link rel="apple-touch-icon" href="\', escape=False)\nresponse.write(URL(request.application,\'static\',\'favicon.png\'))\nresponse.write(\'">\\n\\n    <!-- For the less-enabled mobile browsers like Opera Mini -->\\n    <link rel="stylesheet" media="handheld" href="\', escape=False)\nresponse.write(URL(\'static\',\'css/handheld.css\'))\nresponse.write(\'">\\n    \\n    <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->\\n    <script src="\', escape=False)\nresponse.write(URL(request.application,\'static\',\'js/modernizr-1.6.min.js\'))\nresponse.write(\'"></script>\\n    \\n    \', escape=False)\n#------  require CSS and JS files for this page (read info in base.css) ------\nresponse.write(\'\\n    \', escape=False)\nresponse.files.append(URL(request.application,\'static\',\'css/base.css\'))\nresponse.write(\'\\n    \', escape=False)\nresponse.files.append(URL(request.application,\'static\',\'css/superfish.css\'))\nresponse.write(\'\\n    \', escape=False)\nresponse.files.append(URL(request.application,\'static\',\'js/superfish.js\'))\nresponse.write(\'\\n    \', escape=False)\n#------ include web2py specific js code (jquery, calendar, form stuff) ------\nresponse.write(\'\\n    \', escape=False)\nresponse.write(\'<!-- Grab Google CDN\\\'s jQuery. fall back to local if necessary -->\\n<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js"></script>\\n<script>!window.jQuery && document.write(unescape(\\\'%3Cscript src="\', escape=False)\nresponse.write(URL(\'static\',\'js/jquery.js\'))\nresponse.write(\'"%3E%3C/script%3E\\\'))</script>\\n\', escape=False)\nresponse.files.append(URL(\'static\',\'css/calendar.css\'))\nresponse.files.append(URL(\'static\',\'js/calendar.js\'))\nfor _item in response.meta or []:\n    response.write(\'\\n     <meta name="\', escape=False)\n    response.write(_item)\n    response.write(\'" content="\', escape=False)\n    response.write(response.meta[_item])\n    response.write(\'" />\', escape=False)\n    pass\nfor _k,_file in enumerate(response.files or []):\n    if _file in response.files[:_k]:\n        continue\n    _file0=_file.lower().split(\'?\')[0]\n    if _file0.endswith(\'.css\'):\n        response.write(\'\\n     <link href="\', escape=False)\n        response.write(_file)\n        response.write(\'" rel="stylesheet" type="text/css" />\', escape=False)\n    elif _file0.endswith(\'.js\'):\n        response.write(\'\\n     <script src="\', escape=False)\n        response.write(_file)\n        response.write(\'" type="text/javascript"></script>\', escape=False)\n        pass\n    pass\nresponse.write(\'\\n  \\n<script type="text/javascript"><!--\\nfunction popup(url) {\\n  newwindow=window.open(url,\\\'name\\\',\\\'height=400,width=600\\\');\\n  if (window.focus) newwindow.focus();\\n  return false;\\n}\\nfunction collapse(id) { jQuery(\\\'#\\\'+id).slideToggle(); }\\nfunction fade(id,value) { if(value>0) jQuery(\\\'#\\\'+id).hide().fadeIn(\\\'slow\\\'); else jQuery(\\\'#\\\'+id).show().fadeOut(\\\'slow\\\'); }\\nfunction ajax(u,s,t) {\\n    query = \\\'\\\';\\n    if (typeof s == "string") {\\n        d = jQuery(s).serialize();\\n        if(d){ query = d; }\\n    } else {\\n        pcs = [];\\n        for(i=0; i<s.length; i++) {\\n            q = jQuery("[name="+s[i]+"]").serialize();\\n            if(q){pcs.push(q);}\\n        }\\n        if (pcs.length>0){query = pcs.join("&");}\\n    }\\n    jQuery.ajax({type: "POST", url: u, data: query, success: function(msg) { if(t) { if(t==\\\':eval\\\') eval(msg); else jQuery("#" + t).html(msg); } } }); \\n}\\n\\nString.prototype.reverse = function () { return this.split(\\\'\\\').reverse().join(\\\'\\\');};\\nfunction web2py_ajax_init() {\\n  jQuery(\\\'.hidden\\\').hide();\\n  jQuery(\\\'.error\\\').hide().slideDown(\\\'slow\\\');\\n  jQuery(\\\'.flash\\\').click(function() { jQuery(this).fadeOut(\\\'slow\\\'); return false; });\\n  // jQuery(\\\'input[type=submit]\\\').click(function(){var t=jQuery(this);t.hide();t.after(\\\'<input class="submit_disabled" disabled="disabled" type="submit" name="\\\'+t.attr("name")+\\\'_dummy" value="\\\'+t.val()+\\\'">\\\')});\\n  jQuery(\\\'input.integer\\\').keyup(function(){this.value=this.value.reverse().replace(/[^0-9\\\\-]|\\\\-(?=.)/g,\\\'\\\').reverse();});\\n  jQuery(\\\'input.double,input.decimal\\\').keyup(function(){this.value=this.value.reverse().replace(/[^0-9\\\\-\\\\.]|[\\\\-](?=.)|[\\\\.](?=[0-9]*[\\\\.])/g,\\\'\\\').reverse();});\\n  jQuery("input[type=\\\'checkbox\\\'].delete").each(function(){jQuery(this).click(function() { if(this.checked) if(!confirm("\', escape=False)\nresponse.write(T(\'Sure you want to delete this object?\'))\nresponse.write(\'")) this.checked=false; });});\\n  try {jQuery("input.date").focus( function() {Calendar.setup({\\n     inputField:this.id, ifFormat:"\', escape=False)\nresponse.write(T(\'%Y-%m-%d\'))\nresponse.write(\'", showsTime:false\\n  }); }); } catch(e) {};\\n  try { jQuery("input.datetime").focus( function() {Calendar.setup({\\n     inputField:this.id, ifFormat:"\', escape=False)\nresponse.write(T(\'%Y-%m-%d %H:%M:%S\'))\nresponse.write(\'", showsTime: true,timeFormat: "24"\\n  }); }); } catch(e) {};\\n  try { jQuery("input.time").clockpick({\\n      starthour:0, endhour:23, showminutes:true, military:true\\n  }); } catch(e) {};\\n};\\n\\njQuery(document).ready(function() {   \\n   var flash = jQuery(\\\'.flash\\\');\\n   flash.hide();\\n   if(flash.html()) flash.slideDown();\\n   web2py_ajax_init();\\n});\\nfunction web2py_trap_form(action,target) {\\n   jQuery(\\\'#\\\'+target+\\\' form\\\').each(function(i){\\n      var form=jQuery(this);\\n      if(!form.hasClass(\\\'no_trap\\\'))\\n        form.submit(function(obj){\\n         jQuery(\\\'.flash\\\').hide().html(\\\'\\\');\\n         web2py_ajax_page(\\\'post\\\',action,form.serialize(),target);\\n         return false;\\n      });\\n   });\\n}\\nfunction web2py_ajax_page(method,action,data,target) {\\n  jQuery.ajax({\\\'type\\\':method,\\\'url\\\':action,\\\'data\\\':data,\\n    \\\'beforeSend\\\':function(xhr) {\\n      xhr.setRequestHeader(\\\'web2py-component-location\\\',document.location);\\n      xhr.setRequestHeader(\\\'web2py-component-element\\\',target);},\\n    \\\'complete\\\':function(xhr,text){\\n      var html=xhr.responseText;\\n      var content=xhr.getResponseHeader(\\\'web2py-component-content\\\'); \\n      var command=xhr.getResponseHeader(\\\'web2py-component-command\\\');\\n      var flash=xhr.getResponseHeader(\\\'web2py-component-flash\\\');\\n      var t = jQuery(\\\'#\\\'+target);\\n      if(content==\\\'prepend\\\') t.prepend(html); \\n      else if(content==\\\'append\\\') t.append(html);\\n      else if(content!=\\\'hide\\\') t.html(html);  \\n      web2py_trap_form(action,target);\\n      web2py_ajax_init();      \\n      if(command) eval(command);\\n      if(flash) jQuery(\\\'.flash\\\').html(flash).slideDown();\\n      }\\n    });\\n}\\nfunction web2py_component(action,target) {\\n    jQuery(document).ready(function(){ web2py_ajax_page(\\\'get\\\',action,null,target); });\\n}\\n//--></script>\\n\', escape=False)\nresponse.write(\'\\n\\n    \', escape=False)\n#using sidebars need to know what sidebar you want to use\n#prior of using it, because of static width size of content, you can use\n#left_sidebar, right_sidebar, both or none (False left and right)\nleft_sidebar_enabled = globals().get(\'left_sidebar_enabled\',False)\nright_sidebar_enabled = globals().get(\'right_sidebar_enabled\',False)\nif left_sidebar_enabled and right_sidebar_enabled: width_content=\'63%\'\nelif left_sidebar_enabled != right_sidebar_enabled: width_content=\'740px\'\nelse: width_content=\'100%\'\nif left_sidebar_enabled: left_sidebar_style = \'style="display: block;"\'\nelse: left_sidebar_style = \'style="display: none;"\'\nif right_sidebar_enabled: right_sidebar_style = \'style="display: block;"\'\nelse: right_sidebar_style = \'style="display: none;"\'\nstyle_content = \'style="width: %s"\' % width_content\nresponse.write(\'\\n  </head>\\n  \\n  <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->\\t\\n  <!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->\\n  <!--[if IE 7 ]>    <body class="ie7"> <![endif]-->\\n  <!--[if IE 8 ]>    <body class="ie8"> <![endif]-->\\n  <!--[if IE 9 ]>    <body class="ie9"> <![endif]-->\\n  <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->\\n    \\n    <div class="flash">\', escape=False)\nresponse.write(response.flash or \'\')\nresponse.write(\'</div> <!-- notification div -->\\n    \\n    <div id="container">\\t      \\t\\t      \\t\\n      \\n      <div id="wrapper">\\t\\t\\n\\t\\n\\t<div id="header"> <!-- header and login nav -->\\n\\t  \', escape=False)\nresponse.write(\' <!-- this is default header -->\\n\\t  \', escape=False)\ntry:\n    response.write(auth.navbar(action=URL(request.application,\'default\',\'user\')))\nexcept:pass\nresponse.write(\'\\t\\t          \\n\\t  <div id="logo"><!-- put your logo here --></div>\\n\\t  <div style="clear: both;"></div><!-- Clear the divs -->\\n\\t  \', escape=False)\nresponse.write(\'\\t\\t\\t\\t  \\t\\t\\t\\t\\t  \\n\\t</div><!-- header  -->\\n\\t\\n\\t<div id="statusbar"><!-- statusbar is menu zone -->\\n\\t  \', escape=False)\nresponse.write(\' <!-- this is default statusbar -->\\n\\t  \', escape=False)\n#------ superfish menu ------\nresponse.write(\'\\n\\t  \', escape=False)\nresponse.write(MENU(response.menu,_class=\'sf-menu\'))\nresponse.write(\'\\n\\t  <script type="text/javascript">\\n\\t    jQuery(document).ready(function(){\\n\\t    jQuery(\\\'ul.sf-menu\\\').superfish();});\\n\\t  </script>\\n\\t  <div style="clear: both;"></div><!-- Clear the divs -->\\t\\n\\t  \', escape=False)\nresponse.write(\'\\t\\t\\t\\t\\n\\t</div><!-- statusbar -->\\n\\t\\n\\t<div id="page"> <!-- Here my central body -->\\t  \\n\\n\\t  \', escape=False)\nif left_sidebar_enabled:\n    response.write(\'\\n          <div id="left_sidebar" \', escape=False)\n    response.write(XML(left_sidebar_style))\n    response.write(\' >\\n            <div style="padding: 4px;">\\n\\t      \', escape=False)\n    response.write(\'Content Left Sidebar\', escape=False)\n    response.write(\'\\t\\t  \\n            </div>\\n          </div><!-- left_sidebar -->\\n\\t  \', escape=False)\n    pass\nresponse.write(\'\\n\\n\\t  <!-- content -->\\n\\t  <div id="content" \', escape=False)\nresponse.write(XML(style_content))\nresponse.write(\' >\\n\\t    \', escape=False)\nresponse.write(\'\\n\\n<ul>\\n  \', escape=False)\nfor post in data:\n    response.write(\'\\n  <li>\\n    <div>\\n      <div class="picture">\\n        <img src="https://graph.facebook.com/\', escape=False)\n    response.write(post[\'from\'][\'id\'])\n    response.write(\'/picture" />\\n      </div>\\n      <div class="message">\\n        \', escape=False)\n    response.write(post.message)\n    response.write(\' : <span class="author">\', escape=False)\n    response.write(post[\'from\'][\'name\'])\n    response.write(\'</span>\\n      </div>\\n    </div>   \\n  </li>\\n  \', escape=False)\n    pass\nresponse.write(\'\\n</ul>\\n\', escape=False)\nresponse.write(\'\\t\\n\\t  </div>\\n\\t  <!-- content -->\\n\\n\\t  \', escape=False)\nif right_sidebar_enabled:\n    response.write(\'\\n          <div id="right_sidebar" \', escape=False)\n    response.write(XML(right_sidebar_style))\n    response.write(\' >\\n            <div style="padding: 4px;">\\n              \', escape=False)\n    response.write(\'Content Right Sidebar\', escape=False)\n    response.write(\'\\n            </div>\\n\\t  </div><!-- right_sidebar -->\\n          \', escape=False)\n    pass\nresponse.write(\'\\n\\n\\n\\t  <div style="clear: both;"></div><!-- Clear the divs -->\\n\\t  \\n\\t</div><!-- page -->\\t\\t\\t\\t\\t\\t\\t\\n\\t\\n\\t<div id="footer">\\n\\t  \', escape=False)\nresponse.write(\' <!-- this is default footer -->\\n\\t  <a href="http://www.web2py.com/" style="float: left; padding-right: 6px;">\\n\\t    <img src="\', escape=False)\nresponse.write(URL(request.application,\'static\',\'images/poweredby.png\'))\nresponse.write(\'"/>\\n\\t  </a>\\n\\t  \', escape=False)\nresponse.write(T(\'Copyright\'))\nresponse.write(\' &#169; 2010\\t\\t\\t\\t\\n\\t  <div style="clear: both;"></div><!-- Clear the divs -->\\n\\t  \', escape=False)\nresponse.write(\'\\n\\n\\t</div><!-- footer -->\\t\\t\\t\\n      </div><!-- wrapper -->\\n    </div><!-- container -->\\t\\t\\n    \\n    <!--[if lt IE 7 ]>\\n\\t<script src="\', escape=False)\nresponse.write(URL(\'static\',\'js/dd_belatedpng.js\'))\nresponse.write(\'"></script>\\n\\t<script> DD_belatedPNG.fix(\\\'img, .png_bg\\\'); //fix any <img> or .png_bg background-images </script>\\n\\t<![endif]-->\\n    \\n    <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet \\n\\t change the UA-XXXXX-X to be your site\\\'s ID -->\\n    <!--   \\n\\t   <script>\\n\\t     var _gaq = [[\\\'_setAccount\\\', \\\'UA-XXXXX-X\\\'], [\\\'_trackPageview\\\']];\\n\\t     (function(d, t) {\\n\\t     var g = d.createElement(t),\\n\\t     s = d.getElementsByTagName(t)[0];\\n\\t     g.async = true;\\n\\t     g.src = \\\'//www.google-analytics.com/ga.js\\\';\\n\\t     s.parentNode.insertBefore(g, s);\\n\\t     })(document, \\\'script\\\');\\n\\t   </script>\\n\\t   -->    \\n  </body>\\n</html>\\n\', escape=False)'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__hash__'
+p11
+S"<method-wrapper '__hash__' of exceptions.AttributeError object at 0x17c7198>"
+p12
+sS'__setattr__'
+p13
+S"<method-wrapper '__setattr__' of exceptions.AttributeError object at 0x17c7198>"
+p14
+sS'__reduce_ex__'
+p15
+S'<built-in method __reduce_ex__ of exceptions.AttributeError object at 0x17c7198>'
+p16
+sS'__getslice__'
+p17
+S"<method-wrapper '__getslice__' of exceptions.AttributeError object at 0x17c7198>"
+p18
+sS'__getitem__'
+p19
+S"<method-wrapper '__getitem__' of exceptions.AttributeError object at 0x17c7198>"
+p20
+sS'__setstate__'
+p21
+S'<built-in method __setstate__ of exceptions.AttributeError object at 0x17c7198>'
+p22
+sS'__reduce__'
+p23
+S'<built-in method __reduce__ of exceptions.AttributeError object at 0x17c7198>'
+p24
+sS'__str__'
+p25
+S"<method-wrapper '__str__' of exceptions.AttributeError object at 0x17c7198>"
+p26
+sS'args'
+p27
+S'("\'dict\' object has no attribute \'message\'",)'
+p28
+sS'__getattribute__'
+p29
+S"<method-wrapper '__getattribute__' of exceptions.AttributeError object at 0x17c7198>"
+p30
+sS'__class__'
+p31
+S"<type 'exceptions.AttributeError'>"
+p32
+sS'__delattr__'
+p33
+S"<method-wrapper '__delattr__' of exceptions.AttributeError object at 0x17c7198>"
+p34
+sS'__repr__'
+p35
+S"<method-wrapper '__repr__' of exceptions.AttributeError object at 0x17c7198>"
+p36
+sS'__dict__'
+p37
+S'{}'
+p38
+sS'__doc__'
+p39
+S"'Attribute not found.'"
+p40
+sS'__init__'
+p41
+S"<method-wrapper '__init__' of exceptions.AttributeError object at 0x17c7198>"
+p42
+sS'__new__'
+p43
+S'<built-in method __new__ of type object at 0xdc140>'
+p44
+ssS'evalue'
+p45
+S"'dict' object has no attribute 'message'"
+p46
+sS'request'
+p47
+(dp48
+S'function'
+p49
+S"'index'"
+p50
+sS'body'
+p51
+S'<cStringIO.StringO object at 0x22ad040>'
+p52
+sS'wsgi'
+p53
+S"<Storage {'start_response': <function <lambda> a...ING': 'gzip,deflate', 'HTTP_KEEP_ALIVE': '115'}}>"
+p54
+sS'extension'
+p55
+S"'html'"
+p56
+sS'vars'
+p57
+S'<Storage {}>'
+p58
+sS'cid'
+p59
+S'None'
+p60
+sS'url'
+p61
+S'<gluon.html.XML object at 0x22ad250>'
+p62
+sg27
+S'[]'
+p63
+sS'controller'
+p64
+S"'default'"
+p65
+sS'cookies'
+p66
+S"<SimpleCookie: session_id_a6='127-0-0-1-45a806dd...'127-0-0-1-0e22c263-6ab2-4417-82c7-b046f6fa0aea'>"
+p67
+sS'application'
+p68
+S"'fmld'"
+p69
+sS'ajax'
+p70
+S'False'
+p71
+sS'client'
+p72
+S"'127.0.0.1'"
+p73
+sS'env'
+p74
+S"<Storage {'http_user_agent': 'Mozilla/5.0 (Macin...te', 'query_string': '', 'wsgi_run_once': False}>"
+p75
+sS'raw_args'
+p76
+S'None'
+p77
+sS'get_vars'
+p78
+S'<Storage {}>'
+p79
+sS'folder'
+p80
+S"'/Users/mdipierro/web2py/applications/fmld/'"
+p81
+sS'now'
+p82
+S'datetime.datetime(2010, 11, 7, 10, 41, 0, 640508)'
+p83
+sS'post_vars'
+p84
+S'<Storage {}>'
+p85
+ssS'frames'
+p86
+(lp87
+(dp88
+S'file'
+p89
+S'/Users/mdipierro/web2py/gluon/restricted.py'
+p90
+sS'dump'
+p91
+(dp92
+S'environment'
+p93
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p94
+sS'ccode'
+p95
+S'<code object <module> at 0x108d530, file "/Users...lications/fmld/views/default/index.html", line 1>'
+p96
+ssS'lnum'
+p97
+I188
+sS'lines'
+p98
+(dp99
+I192
+S'        # XXX Show exception in Wing IDE if running in debugger'
+p100
+sI183
+S'        if type(code) == types.CodeType:'
+p101
+sI184
+S'            ccode = code'
+p102
+sI185
+S'        else:'
+p103
+sI186
+S'            ccode = compile2(code,layer)'
+p104
+sI187
+S''
+sI188
+S'        exec ccode in environment'
+p105
+sI189
+S'    except HTTP:'
+p106
+sI190
+S'        raise'
+p107
+sI191
+S'    except Exception:'
+p108
+ssS'call'
+p109
+S'(code=\'response.write(\\\'<!DOCTYPE html>\\\\n<html lang="\\\', ...t   -->    \\\\n  </body>\\\\n</html>\\\\n\\\', escape=False)\', environment={\'A\': <class \'gluon.html.A\'>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, \'CLEANUP\': <class \'gluon.validators.CLEANUP\'>, \'CODE\': <class \'gluon.html.CODE\'>, \'CRYPT\': <class \'gluon.validators.CRYPT\'>, ...}, layer=\'/Users/mdipierro/web2py/applications/fmld/views/default/index.html\')'
+p110
+sS'func'
+p111
+S'restricted'
+p112
+sa(dp113
+g89
+S'/Users/mdipierro/web2py/applications/fmld/views/default/index.html'
+p114
+sg91
+(dp115
+sg97
+I103
+sg98
+(dp116
+I96
+S'response.write(XML(style_content))'
+p117
+sI97
+S"response.write(' >\\n\\t    ', escape=False)"
+p118
+sI98
+S"response.write('\\n\\n<ul>\\n  ', escape=False)"
+p119
+sI99
+S'for post in data:'
+p120
+sI100
+S'    response.write(\'\\n  <li>\\n    <div>\\n      <div class="picture">\\n        <img src="https://graph.facebook.com/\', escape=False)'
+p121
+sI101
+S"    response.write(post['from']['id'])"
+p122
+sI102
+S'    response.write(\'/picture" />\\n      </div>\\n      <div class="message">\\n        \', escape=False)'
+p123
+sI103
+S'    response.write(post.message)'
+p124
+sI104
+S'    response.write(\' : <span class="author">\', escape=False)'
+p125
+sI105
+S"    response.write(post['from']['name'])"
+p126
+sI106
+S"    response.write('</span>\\n      </div>\\n    </div>   \\n  </li>\\n  ', escape=False)"
+p127
+sI107
+S'    pass'
+p128
+sI108
+S"response.write('\\n</ul>\\n', escape=False)"
+p129
+sI109
+S"response.write('\\t\\n\\t  </div>\\n\\t  <!-- content -->\\n\\n\\t  ', escape=False)"
+p130
+sI110
+S'if right_sidebar_enabled:'
+p131
+sI111
+S'    response.write(\'\\n          <div id="right_sidebar" \', escape=False)'
+p132
+sI112
+S'    response.write(XML(right_sidebar_style))'
+p133
+sI113
+S'    response.write(\' >\\n            <div style="padding: 4px;">\\n              \', escape=False)'
+p134
+sI94
+S'    pass'
+p135
+sI95
+S'response.write(\'\\n\\n\\t  <!-- content -->\\n\\t  <div id="content" \', escape=False)'
+p136
+ssg109
+S'()'
+p137
+sg111
+S'<module>'
+p138
+sasS'pyver'
+p139
+S'Python 2.5.4: /usr/bin/python2.5'
+p140
+sS'session'
+p141
+(dp142
+S'auth'
+p143
+S'None'
+p144
+ssS'etype'
+p145
+S"<type 'exceptions.AttributeError'>"
+p146
+sS'date'
+p147
+S'Sun Nov  7 10:41:00 2010'
+p148
+sS'response'
+p149
+(dp150
+S'status'
+p151
+S'200'
+p152
+sg51
+S'<cStringIO.StringO object at 0x22ad5e0>'
+p153
+sg66
+S"<SimpleCookie: session_id_fmld='127-0-0-1-2c7331c2-262c-4a38-afd1-6b4744815110'>"
+p154
+sS'_vars'
+p155
+S'{\'data\': [{u\'created_time\': u\'2010-11-07T16:25:59+0000\', u\'from\': {u\'id\': u\'1101630078\', u\'name\': u\'John LaLiberte\'}, u\'id\': u\'1101630078_165627070124495\', u\'message\': u\'I\\u2019m so harlem eating but so starving, pockets full of fat like all I do is eat margarine\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T16:25:59+0000\'}, {u\'created_time\': u\'2010-11-07T13:07:52+0000\', u\'from\': {u\'id\': u\'100000483722011\', u\'name\': u"Mc\'Cy Maximillian John"}, u\'id\': u\'100000483722011_152622068115676\', u\'likes\': 4, u\'message\': u\'im so starving....feeds me anyone!!!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T13:07:52+0000\'}, {u\'created_time\': u\'2010-11-07T09:32:05+0000\', u\'from\': {u\'id\': u\'1650263945\', u\'name\': u\'D.j. Borgstahl\'}, u\'id\': u\'1650263945_127646150625263\', u\'message\': u\'hate it when i have to cook and im so starving... wait 30 minutes for my fish fingers to cook >.<\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T10:37:43+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-07T07:52:39+0000\', u\'from\': {u\'id\': u\'100001065405668\', u\'name\': u\'Lhen Mendoza\'}, u\'id\': u\'100001065405668_159500824087813\', u\'likes\': 2, u\'message\': u\'Late lunch at tempura japanese resto  here in mall of asia 2gder wth my hubby! so starving... :(\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T10:52:10+0000\'}, {u\'created_time\': u\'2010-11-07T04:56:42+0000\', u\'from\': {u\'id\': u\'100001522535895\', u\'name\': u\'De Jay Jones\'}, u\'id\': u\'100001522535895_105846752818885\', u\'likes\': 2, u\'message\': u\'i just woke up and i am sooooo fucking hungry. i dunno why. i so starving!!!!!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T16:29:14+0000\'}, {u\'created_time\': u\'2010-11-07T00:23:00+0000\', u\'from\': {u\'id\': u\'633484276\', u\'name\': u\'Bobby McPherson\'}, u\'id\': u\'633484276_139105022809178\', u\'message\': u\'So starving!!!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T00:23:00+0000\'}, {u\'created_time\': u\'2010-11-06T22:32:17+0000\', u\'from\': {u\'id\': u\'1507135594\', u\'name\': u\'Alyssa Nieves\'}, u\'id\': u\'1507135594_159691090733261\', u\'message\': u\'IM SO BORED I WANTED TO GO TO NENES PARTY BUT ...STARVING AND NOBODY WANTS TO TAKE ME TO EAT ,,]:\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T22:52:30+0000\'}, {u\'created_time\': u\'2010-11-06T21:27:34+0000\', u\'from\': {u\'id\': u\'100000795769857\', u\'name\': u\'April Luke Helvie\'}, u\'id\': u\'100000795769857_109411669125046\', u\'message\': u\'Just got back from shopping with my mother.  G...tting ready to go out to eat - I am so starving!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T21:27:34+0000\'}, {u\'attribution\': u\'KIN\', u\'created_time\': u\'2010-11-06T20:22:18+0000\', u\'from\': {u\'id\': u\'100000773998425\', u\'name\': u\'Anyssa Perez\'}, u\'id\': u\'100000773998425_169058999778745\', u\'message\': u\'omg im so starving right now...\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T20:22:18+0000\'}, {u\'created_time\': u\'2010-11-06T17:58:42+0000\', u\'from\': {u\'id\': u\'569154101\', u\'name\': u\'Kathryn Muns Lindsey\'}, u\'id\': u\'569154101_163080230392394\', u\'message\': u"Getting adjusted really helped.  We stopped at...I was starting to get shakey didn\'t help either.", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T20:59:04+0000\'}, {u\'created_time\': u\'2010-11-06T17:43:57+0000\', u\'from\': {u\'id\': u\'1250978915\', u\'name\': u\'Michelle Middleton\'}, u\'id\': u\'1250978915_159862470715917\', u\'message\': u\'I cannot believe how much food my children eat...utes later its Mommy Im so starving!!! Hahahahah\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T17:43:57+0000\'}, {u\'created_time\': u\'2010-11-06T17:35:39+0000\', u\'from\': {u\'id\': u\'100001384440272\', u\'name\': u\'Bex Whiffin\'}, u\'id\': u\'100001384440272_144092888971197\', u\'message\': u\'is so starving i swear. nt ta worry doe just waiting 4 me chinese! yummy x\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T17:35:39+0000\'}, {u\'attribution\': u\'iPhone\', u\'created_time\': u\'2010-11-06T17:19:19+0000\', u\'from\': {u\'id\': u\'100001220273389\', u\'name\': u\'Dashae Dooley King\'}, u\'id\': u\'100001220273389_143791279001739\', u\'message\': u"Is so starving and does not know what see wants to eat ... It\'s very frustrating :|", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T17:22:12+0000\'}, {u\'created_time\': u\'2010-11-06T11:27:20+0000\', u\'from\': {u\'id\': u\'627723669\', u\'name\': u\'Ahmad Zhafri\'}, u\'id\': u\'627723669_173583399319531\', u\'message\': u"I\'m so starving...", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T16:30:05+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-06T05:08:09+0000\', u\'from\': {u\'id\': u\'100001478755528\', u\'name\': u\'Lupita Lara\'}, u\'id\': u\'100001478755528_160881700617746\', u\'likes\': 1, u\'message\': u\'379 more days brother! Go Outkasts kick that a...llies never been here before I am so starving :)\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T05:08:09+0000\'}, {u\'caption\': u\'www.theonion.com\', u\'created_time\': u\'2010-11-06T04:06:36+0000\', u\'description\': u"Oh, my God, I am so starving. I swear, if I do...g to eat in like two minutes, I am going to die.", u\'from\': {u\'id\': u\'100000542942915\', u\'name\': u\'Davide Marzoli\'}, u\'icon\': u\'http://b.static.ak.fbcdn.net/rsrc.php/zD/r/aS8ecmYRys0.gif\', u\'id\': u\'100000542942915_154342851275063\', u\'link\': u\'http://www.theonion.com/articles/i-am-so-starving-vs-i-am-so-starving,11541/\', u\'message\': u"Wow. This one just stops being funny at all by the end. It\'s like hitting a wall.", u\'name\': u\'I Am So Starving vs. I Am So Starving\', u\'picture\': u\'http://external.ak.fbcdn.net/safe_image.php?d=...F852%2Fonion_counterpoint15_jpg_250x1000_q85.jpg\', ...}, {u\'attribution\': u\'Android\', u\'created_time\': u\'2010-11-06T02:47:04+0000\', u\'from\': {u\'id\': u\'100000266725866\', u\'name\': u\'Chantel Rizzo\'}, u\'id\': u\'100000266725866_110279169038647\', u\'message\': u\'I am so starving.....\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T03:34:17+0000\'}, {u\'created_time\': u\'2010-11-06T01:56:30+0000\', u\'from\': {u\'id\': u\'100000056612780\', u\'name\': u\'Joanalyn Dela Cruz\'}, u\'id\': u\'100000056612780_171636069528789\', u\'message\': u\'im so starving...\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T01:56:30+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-06T00:50:59+0000\', u\'from\': {u\'id\': u\'1100413839\', u\'name\': u"Ash\'Leah Nicole Jackson"}, u\'id\': u\'1100413839_109458325786887\', u\'message\': u\'Whats for dinner. Im so starving right now.\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T00:50:59+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-06T00:32:26+0000\', u\'from\': {u\'id\': u\'100000333933026\', u\'name\': u\'Hanna Silfa\'}, u\'id\': u\'100000333933026_139712179410832\', u\'likes\': 1, u\'message\': u"On my way to church but I\'m so starving... ugggggg", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T02:33:45+0000\'}, ...]}'
+p156
+sS'title'
+p157
+S"'fmld'"
+p158
+sS'session_file'
+p159
+S"<open file '/Users/mdipierro/web2py/applications...4a38-afd1-6b4744815110', mode 'rb+' at 0x1088800>"
+p160
+sS'flash'
+p161
+S"''"
+p162
+sS'_custom_rollback'
+p163
+S'None'
+p164
+sS'session_id'
+p165
+S"'127-0-0-1-2c7331c2-262c-4a38-afd1-6b4744815110'"
+p166
+sS'headers'
+p167
+S"<Storage {'Expires': 'Sun, 07 Nov 2010 16:41:00 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p168
+sS'meta'
+p169
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p170
+sS'session_filename'
+p171
+S"'/Users/mdipierro/web2py/applications/fmld/sessions/127-0-0-1-2c7331c2-262c-4a38-afd1-6b4744815110'"
+p172
+sS'postprocessing'
+p173
+S'[]'
+p174
+sS'menu'
+p175
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object at 0x25f82f0>, []), (<lazyT 'This App'>, False, <gluon.html.XML object at 0x25f8ff0>, [(<lazyT 'Controller'>, False, <gluon.html.XML object at 0x25f8c70>), (<lazyT 'View'>, False, <gluon.html.XML object at 0x25f8630>), (<lazyT 'Layout'>, False, <gluon.html.XML object at 0x25f8f90>), (<lazyT 'Stylesheet'>, False, <gluon.html.XML object at 0x25f8ef0>), (<lazyT 'DB Model'>, False, <gluon.html.XML object at 0x25f8d30>), (<lazyT 'Menu Model'>, False, <gluon.html.XML object at 0x25f8ad0>), (<lazyT 'Database'>, False, <gluon.html.XML object at 0x25f8af0>), (<lazyT 'Errors'>, False, <gluon.html.XML object at 0x25f88b0>), (<lazyT 'About'>, False, <gluon.html.XML object at 0x25f8930>)]), (<lazyT 'Resources'>, False, None, [(<lazyT 'Documentation'>, False, 'http://www.web2py.com/book', [(<lazyT 'Preface'>, False, 'http://www.web2py.com/book/default/chapter/00'), (<lazyT 'Introduction'>, False, 'http://www.web2py.com/book/default/chapter/01'), (<lazyT 'Python'>, False, 'http://www.web2py.com/book/default/chapter/02'), (<lazyT 'Overview'>, False, 'http://www.web2py.com/book/default/chapter/03'), (<lazyT 'The Core'>, False, 'http://www.web2py.com/book/default/chapter/04'), (<lazyT 'The Views'>, False, 'http://www.web2py.com/book/default/chapter/05'), (<lazyT 'Database'>, False, 'http://www.web2py.com/book/default/chapter/06'), (<lazyT 'Forms and Validators'>, False, 'http://www.web2py.com/book/default/chapter/07'), (<lazyT 'Access Control'>, False, 'http://www.web2py.com/book/default/chapter/08'), (<lazyT 'Services'>, False, 'http://www.web2py.com/book/default/chapter/09'), (<lazyT 'Ajax Recipes'>, False, 'http://www.web2py.com/book/default/chapter/10'), (<lazyT 'Deployment Recipes'>, False, 'http://www.web2py.com/book/default/chapter/11'), (<lazyT 'Other Recipes'>, False, 'http://www.web2py.com/book/default/chapter/12'), (<lazyT 'Buy this book'>, False, 'http://stores.lulu.com/web2py')]), (<lazyT 'Community'>, False, None, [(<lazyT 'Groups'>, False, 'http://www.web2py.com/examples/default/usergroups'), (<lazyT 'Twitter'>, False, 'http://twitter.com/web2py'), (<lazyT 'Live chat'>, False, 'http://mibbit.com/?channel=%23web2py&server=irc.mibbit.net'), (<lazyT 'User Voice'>, False, 'http://web2py.uservoice.com/')]), (<lazyT 'Web2py'>, False, 'http://www.web2py.com', [(<lazyT 'Download'>, False, 'http://www.web2py.com/examples/default/download'), (<lazyT 'Support'>, False, 'http://www.web2py.com/examples/default/support'), (<lazyT 'Quick Examples'>, False, 'http://web2py.com/examples/default/examples'), (<lazyT 'FAQ'>, False, 'http://web2py.com/AlterEgo'), (<lazyT 'Free Applications'>, False, 'http://web2py.com/appliances'), (<lazyT 'Plugins'>, False, 'http://web2py.com/plugins'), (<lazyT 'Recipes'>, False, 'http://web2pyslices.com/'), (<lazyT 'Demo'>, False, 'http://web2py.com/demo_admin'), (<lazyT 'Semantic'>, False, 'http://web2py.com/semantic'), (<lazyT 'Layouts'>, False, 'http://web2py.com/layouts'), (<lazyT 'Videos'>, False, 'http://www.web2py.com/examples/default/videos/')])])]"
+p176
+sS'_view_environment'
+p177
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p178
+sS'subtitle'
+p179
+S"<lazyT 'customize me!'>"
+p180
+sS'session_id_name'
+p181
+S"'session_id_fmld'"
+p182
+sS'_custom_commit'
+p183
+S'None'
+p184
+sS'_caller'
+p185
+S'<function <lambda> at 0x1086db0>'
+p186
+sS'files'
+p187
+S'[<gluon.html.XML object at 0x22f63f0>, <gluon.html.XML object at 0x22f6bf0>, <gluon.html.XML object at 0x22f6470>, <gluon.html.XML object at 0x22f6ad0>, <gluon.html.XML object at 0x22f6170>]'
+p188
+sS'view'
+p189
+S"'default/index.html'"
+p190
+ssS'locals'
+p191
+(dp192
+S'Service'
+p193
+S'<class gluon.tools.Service at 0x722e10>'
+p194
+sS'OBJECT'
+p195
+S"<class 'gluon.html.OBJECT'>"
+p196
+sS'_file'
+p197
+S'<gluon.html.XML object at 0x22f6170>'
+p198
+sS'SQLDB'
+p199
+S"<class 'gluon.sql.SQLDB'>"
+p200
+sg141
+S"<Storage {'auth': None}>"
+p201
+sS'LINK'
+p202
+S"<class 'gluon.html.LINK'>"
+p203
+sS'BR'
+p204
+S"<class 'gluon.html.BR'>"
+p205
+sS'local_import'
+p206
+S'<function <lambda> at 0x1092870>'
+p207
+sS'OPTGROUP'
+p208
+S"<class 'gluon.html.OPTGROUP'>"
+p209
+sS'PRE'
+p210
+S"<class 'gluon.html.PRE'>"
+p211
+sS'IS_INT_IN_RANGE'
+p212
+S"<class 'gluon.validators.IS_INT_IN_RANGE'>"
+p213
+sS'left_sidebar_enabled'
+p214
+g71
+sS'IS_LOWER'
+p215
+S"<class 'gluon.validators.IS_LOWER'>"
+p216
+sS'IS_STRONG'
+p217
+S"<class 'gluon.validators.IS_STRONG'>"
+p218
+sS'Recaptcha'
+p219
+S"<class 'gluon.tools.Recaptcha'>"
+p220
+sS'cache'
+p221
+S'<gluon.cache.Cache object at 0x22ad3b0>'
+p222
+sS'IS_IN_DB'
+p223
+S"<class 'gluon.validators.IS_IN_DB'>"
+p224
+sS'TAG'
+p225
+S'<gluon.html.__TAG__ object at 0x1061b50>'
+p226
+sS'_k'
+p227
+S'4'
+sS'SQLField'
+p228
+S"<class 'gluon.sql.Field'>"
+p229
+sS'mail'
+p230
+S'<gluon.tools.Mail object at 0x22ad870>'
+p231
+sS'BODY'
+p232
+S"<class 'gluon.html.BODY'>"
+p233
+sS'IS_DATE_IN_RANGE'
+p234
+S"<class 'gluon.validators.IS_DATE_IN_RANGE'>"
+p235
+sS'TH'
+p236
+S"<class 'gluon.html.TH'>"
+p237
+sS'URL'
+p238
+S'<function _URL at 0x1092270>'
+p239
+sS'db'
+p240
+S"<SQLDB {'_connection': <sqlite3.Connection objec...0x281bf30>}>, '_migrate': True, '_pool_size': 0}>"
+p241
+sS'auth'
+p242
+S'<gluon.tools.Auth object at 0x22ad670>'
+p243
+sS'P'
+S"<class 'gluon.html.P'>"
+p244
+sS'TFOOT'
+p245
+S"<class 'gluon.html.TFOOT'>"
+p246
+sS'XHTML'
+p247
+S"<class 'gluon.html.XHTML'>"
+p248
+sS'ON'
+p249
+S'True'
+p250
+sS'OL'
+p251
+S"<class 'gluon.html.OL'>"
+p252
+sS'TEXTAREA'
+p253
+S"<class 'gluon.html.TEXTAREA'>"
+p254
+sS'MENU'
+p255
+S"<class 'gluon.html.MENU'>"
+p256
+sS'_file0'
+p257
+S"'/fmld/static/js/calendar.js'"
+p258
+sS'LOAD'
+p259
+S'<gluon.compileapp.LoadFactory instance at 0x17d2878>'
+p260
+sS'CODE'
+p261
+S"<class 'gluon.html.CODE'>"
+p262
+sS'HTTP'
+p263
+S"<class 'gluon.http.HTTP'>"
+p264
+sS'HR'
+p265
+S"<class 'gluon.html.HR'>"
+p266
+sS'IS_DATETIME'
+p267
+S"<class 'gluon.validators.IS_DATETIME'>"
+p268
+sS'HEAD'
+p269
+S"<class 'gluon.html.HEAD'>"
+p270
+sS'LABEL'
+p271
+S"<class 'gluon.html.LABEL'>"
+p272
+sS'CLEANUP'
+p273
+S"<class 'gluon.validators.CLEANUP'>"
+p274
+sS'plugins'
+p275
+S'<gluon.tools.PluginManager object at 0x22ad3d0>'
+p276
+sS'SELECT'
+p277
+S"<class 'gluon.html.SELECT'>"
+p278
+sS'CENTER'
+p279
+S"<class 'gluon.html.CENTER'>"
+p280
+sS'left_sidebar_style'
+p281
+S'\'style="display: none;"\''
+p282
+sS'Crud'
+p283
+S"<class 'gluon.tools.Crud'>"
+p284
+sS'Auth'
+p285
+S"<class 'gluon.tools.Auth'>"
+p286
+sS'__builtins__'
+p287
+S"{'ArithmeticError': <type 'exceptions.ArithmeticError'>, 'AssertionError': <type 'exceptions.AssertionError'>, 'AttributeError': <type 'exceptions.AttributeError'>, 'BaseException': <type 'exceptions.BaseException'>, 'DeprecationWarning': <type 'exceptions.DeprecationWarning'>, 'EOFError': <type 'exceptions.EOFError'>, 'Ellipsis': Ellipsis, 'EnvironmentError': <type 'exceptions.EnvironmentError'>, 'Exception': <type 'exceptions.Exception'>, 'False': False, ...}"
+p288
+sS'IS_LIST_OF'
+p289
+S"<class 'gluon.validators.IS_LIST_OF'>"
+p290
+sS'SQLFORM'
+p291
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p292
+sS'_item'
+p293
+S"'author'"
+p294
+sS'EM'
+p295
+S"<class 'gluon.html.EM'>"
+p296
+sS'redirect'
+p297
+S'<function redirect at 0x45dd30>'
+p298
+sS'FIELDSET'
+p299
+S"<class 'gluon.html.FIELDSET'>"
+p300
+sS'IS_EQUAL_TO'
+p301
+S"<class 'gluon.validators.IS_EQUAL_TO'>"
+p302
+sS'embed64'
+p303
+S'<function embed64 at 0x10e27f0>'
+p304
+sS'INPUT'
+p305
+S"<class 'gluon.html.INPUT'>"
+p306
+sS'post'
+p307
+S"{u'created_time': u'2010-11-07T16:25:59+0000', u'from': {u'id': u'1101630078', u'name': u'John LaLiberte'}, u'id': u'1101630078_165627070124495', u'message': u'I\\u2019m so harlem eating but so starving, pockets full of fat like all I do is eat margarine', u'type': u'status', u'updated_time': u'2010-11-07T16:25:59+0000'}"
+p308
+sS'FORM'
+p309
+S"<class 'gluon.html.FORM'>"
+p310
+sS'width_content'
+p311
+S"'100%'"
+p312
+sS'H2'
+p313
+S"<class 'gluon.html.H2'>"
+p314
+sS'H3'
+p315
+S"<class 'gluon.html.H3'>"
+p316
+sS'H1'
+p317
+S"<class 'gluon.html.H1'>"
+p318
+sS'H6'
+p319
+S"<class 'gluon.html.H6'>"
+p320
+sS'H4'
+p321
+S"<class 'gluon.html.H4'>"
+p322
+sS'H5'
+p323
+S"<class 'gluon.html.H5'>"
+p324
+sS'UL'
+p325
+S"<class 'gluon.html.UL'>"
+p326
+sS'IS_UPPER'
+p327
+S"<class 'gluon.validators.IS_UPPER'>"
+p328
+sS'xmlescape'
+p329
+S'<function xmlescape at 0x10cd670>'
+p330
+sS'IS_TIME'
+p331
+S"<class 'gluon.validators.IS_TIME'>"
+p332
+sS'OPTION'
+p333
+S"<class 'gluon.html.OPTION'>"
+p334
+sS'TITLE'
+p335
+S"<class 'gluon.html.TITLE'>"
+p336
+sS'CRYPT'
+p337
+S"<class 'gluon.validators.CRYPT'>"
+p338
+sS'IS_EMPTY_OR'
+p339
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p340
+sS'MARKMIN'
+p341
+S"<class 'gluon.html.MARKMIN'>"
+p342
+sS'EMBED'
+p343
+S"<class 'gluon.html.EMBED'>"
+p344
+sS'service'
+p345
+S'<gluon.tools.Service instance at 0x17d25a8>'
+p346
+sS'SCRIPT'
+p347
+S"<class 'gluon.html.SCRIPT'>"
+p348
+sS'geocode'
+p349
+S'<function geocode at 0x7373b0>'
+p350
+sS'TABLE'
+p351
+S"<class 'gluon.html.TABLE'>"
+p352
+sS'IS_IPV4'
+p353
+S"<class 'gluon.validators.IS_IPV4'>"
+p354
+sS'IS_LENGTH'
+p355
+S"<class 'gluon.validators.IS_LENGTH'>"
+p356
+sS'XML'
+p357
+S"<class 'gluon.html.XML'>"
+p358
+sS'B'
+S"<class 'gluon.html.B'>"
+p359
+sS'IMG'
+p360
+S"<class 'gluon.html.IMG'>"
+p361
+sS'SQLTABLE'
+p362
+S"<class 'gluon.sqlhtml.SQLTABLE'>"
+p363
+sS'IS_MATCH'
+p364
+S"<class 'gluon.validators.IS_MATCH'>"
+p365
+sS'IS_ALPHANUMERIC'
+p366
+S"<class 'gluon.validators.IS_ALPHANUMERIC'>"
+p367
+sS'SPAN'
+p368
+S"<class 'gluon.html.SPAN'>"
+p369
+sS'IS_SLUG'
+p370
+S"<class 'gluon.validators.IS_SLUG'>"
+p371
+sS'BEAUTIFY'
+p372
+S"<class 'gluon.html.BEAUTIFY'>"
+p373
+sS'META'
+p374
+S"<class 'gluon.html.META'>"
+p375
+sS'fetch'
+p376
+S'<function fetch at 0x72d7f0>'
+p377
+sS'IS_DATE'
+p378
+S"<class 'gluon.validators.IS_DATE'>"
+p379
+sS'IS_EMAIL'
+p380
+S"<class 'gluon.validators.IS_EMAIL'>"
+p381
+sS'IS_NOT_EMPTY'
+p382
+S"<class 'gluon.validators.IS_NOT_EMPTY'>"
+p383
+sg47
+S"<Storage {'function': 'index', 'body': <cStringI..., 10, 41, 0, 640508), 'post_vars': <Storage {}>}>"
+p384
+sS'TBODY'
+p385
+S"<class 'gluon.html.TBODY'>"
+p386
+sS'Field'
+p387
+S"<class 'gluon.sql.Field'>"
+p388
+sS'Mail'
+p389
+S"<class 'gluon.tools.Mail'>"
+p390
+sS'DIV'
+p391
+S"<class 'gluon.html.DIV'>"
+p392
+sS'LEGEND'
+p393
+S"<class 'gluon.html.LEGEND'>"
+p394
+sS'DAL'
+p395
+S'<function DAL at 0x107f3b0>'
+p396
+sS'TT'
+p397
+S"<class 'gluon.html.TT'>"
+p398
+sS'TR'
+p399
+S"<class 'gluon.html.TR'>"
+p400
+sS'LI'
+p401
+S"<class 'gluon.html.LI'>"
+p402
+sS'right_sidebar_enabled'
+p403
+g71
+sS'IFRAME'
+p404
+S"<class 'gluon.html.IFRAME'>"
+p405
+sS'TD'
+p406
+S"<class 'gluon.html.TD'>"
+p407
+sS'PluginManager'
+p408
+S"<class 'gluon.tools.PluginManager'>"
+p409
+sS'IS_URL'
+p410
+S"<class 'gluon.validators.IS_URL'>"
+p411
+sS'A'
+S"<class 'gluon.html.A'>"
+p412
+sS'STYLE'
+p413
+S"<class 'gluon.html.STYLE'>"
+p414
+sS'IS_DATETIME_IN_RANGE'
+p415
+S"<class 'gluon.validators.IS_DATETIME_IN_RANGE'>"
+p416
+sS'HTML'
+p417
+S"<class 'gluon.html.HTML'>"
+p418
+sS'IS_IMAGE'
+p419
+S"<class 'gluon.validators.IS_IMAGE'>"
+p420
+sS'I'
+S"<class 'gluon.html.I'>"
+p421
+sS'crud'
+p422
+S'<gluon.tools.Crud object at 0x22ade70>'
+p423
+sS'right_sidebar_style'
+p424
+S'\'style="display: none;"\''
+p425
+sS'IS_NOT_IN_DB'
+p426
+S"<class 'gluon.validators.IS_NOT_IN_DB'>"
+p427
+sS'data'
+p428
+S'[{u\'created_time\': u\'2010-11-07T16:25:59+0000\', u\'from\': {u\'id\': u\'1101630078\', u\'name\': u\'John LaLiberte\'}, u\'id\': u\'1101630078_165627070124495\', u\'message\': u\'I\\u2019m so harlem eating but so starving, pockets full of fat like all I do is eat margarine\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T16:25:59+0000\'}, {u\'created_time\': u\'2010-11-07T13:07:52+0000\', u\'from\': {u\'id\': u\'100000483722011\', u\'name\': u"Mc\'Cy Maximillian John"}, u\'id\': u\'100000483722011_152622068115676\', u\'likes\': 4, u\'message\': u\'im so starving....feeds me anyone!!!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T13:07:52+0000\'}, {u\'created_time\': u\'2010-11-07T09:32:05+0000\', u\'from\': {u\'id\': u\'1650263945\', u\'name\': u\'D.j. Borgstahl\'}, u\'id\': u\'1650263945_127646150625263\', u\'message\': u\'hate it when i have to cook and im so starving... wait 30 minutes for my fish fingers to cook >.<\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T10:37:43+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-07T07:52:39+0000\', u\'from\': {u\'id\': u\'100001065405668\', u\'name\': u\'Lhen Mendoza\'}, u\'id\': u\'100001065405668_159500824087813\', u\'likes\': 2, u\'message\': u\'Late lunch at tempura japanese resto  here in mall of asia 2gder wth my hubby! so starving... :(\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T10:52:10+0000\'}, {u\'created_time\': u\'2010-11-07T04:56:42+0000\', u\'from\': {u\'id\': u\'100001522535895\', u\'name\': u\'De Jay Jones\'}, u\'id\': u\'100001522535895_105846752818885\', u\'likes\': 2, u\'message\': u\'i just woke up and i am sooooo fucking hungry. i dunno why. i so starving!!!!!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T16:29:14+0000\'}, {u\'created_time\': u\'2010-11-07T00:23:00+0000\', u\'from\': {u\'id\': u\'633484276\', u\'name\': u\'Bobby McPherson\'}, u\'id\': u\'633484276_139105022809178\', u\'message\': u\'So starving!!!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-07T00:23:00+0000\'}, {u\'created_time\': u\'2010-11-06T22:32:17+0000\', u\'from\': {u\'id\': u\'1507135594\', u\'name\': u\'Alyssa Nieves\'}, u\'id\': u\'1507135594_159691090733261\', u\'message\': u\'IM SO BORED I WANTED TO GO TO NENES PARTY BUT ...STARVING AND NOBODY WANTS TO TAKE ME TO EAT ,,]:\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T22:52:30+0000\'}, {u\'created_time\': u\'2010-11-06T21:27:34+0000\', u\'from\': {u\'id\': u\'100000795769857\', u\'name\': u\'April Luke Helvie\'}, u\'id\': u\'100000795769857_109411669125046\', u\'message\': u\'Just got back from shopping with my mother.  G...tting ready to go out to eat - I am so starving!\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T21:27:34+0000\'}, {u\'attribution\': u\'KIN\', u\'created_time\': u\'2010-11-06T20:22:18+0000\', u\'from\': {u\'id\': u\'100000773998425\', u\'name\': u\'Anyssa Perez\'}, u\'id\': u\'100000773998425_169058999778745\', u\'message\': u\'omg im so starving right now...\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T20:22:18+0000\'}, {u\'created_time\': u\'2010-11-06T17:58:42+0000\', u\'from\': {u\'id\': u\'569154101\', u\'name\': u\'Kathryn Muns Lindsey\'}, u\'id\': u\'569154101_163080230392394\', u\'message\': u"Getting adjusted really helped.  We stopped at...I was starting to get shakey didn\'t help either.", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T20:59:04+0000\'}, {u\'created_time\': u\'2010-11-06T17:43:57+0000\', u\'from\': {u\'id\': u\'1250978915\', u\'name\': u\'Michelle Middleton\'}, u\'id\': u\'1250978915_159862470715917\', u\'message\': u\'I cannot believe how much food my children eat...utes later its Mommy Im so starving!!! Hahahahah\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T17:43:57+0000\'}, {u\'created_time\': u\'2010-11-06T17:35:39+0000\', u\'from\': {u\'id\': u\'100001384440272\', u\'name\': u\'Bex Whiffin\'}, u\'id\': u\'100001384440272_144092888971197\', u\'message\': u\'is so starving i swear. nt ta worry doe just waiting 4 me chinese! yummy x\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T17:35:39+0000\'}, {u\'attribution\': u\'iPhone\', u\'created_time\': u\'2010-11-06T17:19:19+0000\', u\'from\': {u\'id\': u\'100001220273389\', u\'name\': u\'Dashae Dooley King\'}, u\'id\': u\'100001220273389_143791279001739\', u\'message\': u"Is so starving and does not know what see wants to eat ... It\'s very frustrating :|", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T17:22:12+0000\'}, {u\'created_time\': u\'2010-11-06T11:27:20+0000\', u\'from\': {u\'id\': u\'627723669\', u\'name\': u\'Ahmad Zhafri\'}, u\'id\': u\'627723669_173583399319531\', u\'message\': u"I\'m so starving...", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T16:30:05+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-06T05:08:09+0000\', u\'from\': {u\'id\': u\'100001478755528\', u\'name\': u\'Lupita Lara\'}, u\'id\': u\'100001478755528_160881700617746\', u\'likes\': 1, u\'message\': u\'379 more days brother! Go Outkasts kick that a...llies never been here before I am so starving :)\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T05:08:09+0000\'}, {u\'caption\': u\'www.theonion.com\', u\'created_time\': u\'2010-11-06T04:06:36+0000\', u\'description\': u"Oh, my God, I am so starving. I swear, if I do...g to eat in like two minutes, I am going to die.", u\'from\': {u\'id\': u\'100000542942915\', u\'name\': u\'Davide Marzoli\'}, u\'icon\': u\'http://b.static.ak.fbcdn.net/rsrc.php/zD/r/aS8ecmYRys0.gif\', u\'id\': u\'100000542942915_154342851275063\', u\'link\': u\'http://www.theonion.com/articles/i-am-so-starving-vs-i-am-so-starving,11541/\', u\'message\': u"Wow. This one just stops being funny at all by the end. It\'s like hitting a wall.", u\'name\': u\'I Am So Starving vs. I Am So Starving\', u\'picture\': u\'http://external.ak.fbcdn.net/safe_image.php?d=...F852%2Fonion_counterpoint15_jpg_250x1000_q85.jpg\', ...}, {u\'attribution\': u\'Android\', u\'created_time\': u\'2010-11-06T02:47:04+0000\', u\'from\': {u\'id\': u\'100000266725866\', u\'name\': u\'Chantel Rizzo\'}, u\'id\': u\'100000266725866_110279169038647\', u\'message\': u\'I am so starving.....\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T03:34:17+0000\'}, {u\'created_time\': u\'2010-11-06T01:56:30+0000\', u\'from\': {u\'id\': u\'100000056612780\', u\'name\': u\'Joanalyn Dela Cruz\'}, u\'id\': u\'100000056612780_171636069528789\', u\'message\': u\'im so starving...\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T01:56:30+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-06T00:50:59+0000\', u\'from\': {u\'id\': u\'1100413839\', u\'name\': u"Ash\'Leah Nicole Jackson"}, u\'id\': u\'1100413839_109458325786887\', u\'message\': u\'Whats for dinner. Im so starving right now.\', u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T00:50:59+0000\'}, {u\'attribution\': u\'Mobile Web\', u\'created_time\': u\'2010-11-06T00:32:26+0000\', u\'from\': {u\'id\': u\'100000333933026\', u\'name\': u\'Hanna Silfa\'}, u\'id\': u\'100000333933026_139712179410832\', u\'likes\': 1, u\'message\': u"On my way to church but I\'m so starving... ugggggg", u\'type\': u\'status\', u\'updated_time\': u\'2010-11-06T02:33:45+0000\'}, ...]'
+p429
+sg149
+S"<Storage {'status': 200, 'body': <cStringIO.Stri...object at 0x22f6170>], '_custom_rollback': None}>"
+p430
+sS'THEAD'
+p431
+S"<class 'gluon.html.THEAD'>"
+p432
+sS'IS_NULL_OR'
+p433
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p434
+sS'prettydate'
+p435
+S'<function prettydate at 0x737a30>'
+p436
+sS'IS_FLOAT_IN_RANGE'
+p437
+S"<class 'gluon.validators.IS_FLOAT_IN_RANGE'>"
+p438
+sS'IS_EXPR'
+p439
+S"<class 'gluon.validators.IS_EXPR'>"
+p440
+sS'T'
+S'<gluon.languages.translator object at 0x22ada90>'
+p441
+sS'IS_IN_SET'
+p442
+S"<class 'gluon.validators.IS_IN_SET'>"
+p443
+sS'IS_UPLOAD_FILENAME'
+p444
+S"<class 'gluon.validators.IS_UPLOAD_FILENAME'>"
+p445
+sS'style_content'
+p446
+S'\'style="width: 100%"\''
+p447
+sS'IS_DECIMAL_IN_RANGE'
+p448
+S"<class 'gluon.validators.IS_DECIMAL_IN_RANGE'>"
+p449
+sssS'traceback'
+p450
+S'Traceback (most recent call last):\n  File "/Users/mdipierro/web2py/gluon/restricted.py", line 188, in restricted\n    exec ccode in environment\n  File "/Users/mdipierro/web2py/applications/fmld/views/default/index.html", line 103, in <module>\nAttributeError: \'dict\' object has no attribute \'message\'\n'
+p451
+s.
