@@ -16,6 +16,8 @@ We have the same app in these frameworks.
 * [juno](https://github.com/breily/juno)
 * [bottle](http://bottle.paws.de/docs/dev/index.html)
 * [itty](http://toastdriven.com/fresh/itty-sinatra-inspired-micro-framework/)
+* [tornado](http://www.tornadoweb.org/)
+* [pyroutes](http://www.pyroutes.com/)
 
 ### Full stack frameworks:
 
