@@ -1,0 +1,23 @@
+Downloading/unpacking webpy
+  Getting page http://pypi.python.org/simple/webpy
+  Could not fetch URL http://pypi.python.org/simple/webpy: HTTP Error 404: Not Found (webpy does not have any releases)
+  Will skip URL http://pypi.python.org/simple/webpy when looking for download links for webpy
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for webpy:
+  * http://pypi.python.org/simple/webpy/
+  Getting page http://pypi.python.org/simple/webpy/
+  Could not fetch URL http://pypi.python.org/simple/webpy/: HTTP Error 404: Not Found (webpy does not have any releases)
+  Will skip URL http://pypi.python.org/simple/webpy/ when looking for download links for webpy
+  Could not find any downloads that satisfy the requirement webpy
+No distributions at all found for webpy
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.1-py2.6.egg/pip.py", line 482, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.1-py2.6.egg/pip.py", line 675, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.1-py2.6.egg/pip.py", line 2422, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.1-py2.6.egg/pip.py", line 1485, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for webpy
