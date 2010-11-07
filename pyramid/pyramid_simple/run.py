@@ -4,9 +4,6 @@ import json as simplejson
 from pyramid.configuration import Configurator
 from paste.httpserver import serve
 
-from werkzeug.contrib.cache import SimpleCache
-cache = SimpleCache()
-
 from beaker.cache import cache_regions, cache_region
 cache_regions['short_term'] = dict(type='memory', expire=30*60)
 
