@@ -1,4 +1,0 @@
-pyramid_minimal README
-
-
-
