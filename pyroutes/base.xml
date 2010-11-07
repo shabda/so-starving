@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.1//EN'  'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>
+<html xml:lang="en"  xmlns:t="http://template.sesse.net/" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Klette.us - Blog, Code, Rants</title>
+<style type="text/css">
+<![CDATA[
+    .author{
+            font-style:italic;
+        }
+        li{
+            list-style: none;
+        }
+        .picture, .message{
+            float:left;
+        }
+
+]]>
+</style>
+</head>
+<body>
+ <ul>
+    <li>
+        <div>
+            <div t:id="picture" class="picture">
+                <img  />
+            </div>
+        <div t:id="message" class="message">
+         <span t:id="msg"></span>:
+            <span t:id="author" class="author"></span>
+        </div>
+
+      </div>
+    </li>
+ </ul>
+
+</body>
+</html>
