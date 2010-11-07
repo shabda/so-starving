@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+pyramid_minimal/__init__.py
+pyramid_minimal/handlers.py
+pyramid_minimal/subscribers.py
+pyramid_minimal/tests.py
+pyramid_minimal.egg-info/PKG-INFO
+pyramid_minimal.egg-info/SOURCES.txt
+pyramid_minimal.egg-info/dependency_links.txt
+pyramid_minimal.egg-info/entry_points.txt
+pyramid_minimal.egg-info/not-zip-safe
+pyramid_minimal.egg-info/paster_plugins.txt
+pyramid_minimal.egg-info/requires.txt
+pyramid_minimal.egg-info/top_level.txt
