@@ -16,3 +16,4 @@ We have the same app in these frameworks.
 * [itty](http://toastdriven.com/fresh/itty-sinatra-inspired-micro-framework/)
 * [django](http://djangoproject.com/)
 * [web2py](http://web2py.com/)
+* [pyramid](http://docs.pylonshq.com/faq/pyramid.html)
