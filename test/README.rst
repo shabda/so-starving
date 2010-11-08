@@ -4,17 +4,18 @@ In App Caching sucks
 Here is the gist of this.  I am not testing how fast the individual
 frameworks are.  Comparing any of the frameworks to a cached page in
 Varnish would be completely unfair. They are all running under the
-worst case conditions. They are using using wsgiref.simple_server
+worst case conditions. They are using wsgiref.simple_server
 and accessing high latency data.  These conditions would make any
 framework cry.
 
-I want to convey the fact that no matter how fast you get your
-application layer is; If you are doing caching in the application is
+What I really want to convey the fact that no matter how fast you get your
+application layer. If you are doing caching in the application it is
 going to be extremely slow compared to doing caching inside of a
 specialized caching proxy like Varnish.  There is just no comparison.
 
 The moral of the story is this.  Get your client side state out of
-your server and into the client where it belong.
+your server and into the client where it belong so you can do proper HTTP/1.1
+caching.
 
 I'll leave you with this quote from RESTful web services::
 
