@@ -20,6 +20,8 @@ def index():
             cache.set(fml_endpoint, fb_data, 30 * 60)
         return render_template("index.html", data = fb_data)
 
+application = app
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

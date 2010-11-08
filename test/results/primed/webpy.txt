@@ -1,0 +1,43 @@
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+
+
+Server Software:        WSGIServer/0.1
+Server Hostname:        localhost
+Server Port:            10001
+
+Document Path:          /
+Document Length:        12810 bytes
+
+Concurrency Level:      1
+Time taken for tests:   37.206 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      12943000 bytes
+HTML transferred:       12810000 bytes
+Requests per second:    26.88 [#/sec] (mean)
+Time per request:       37.206 [ms] (mean)
+Time per request:       37.206 [ms] (mean, across all concurrent requests)
+Transfer rate:          339.72 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:    28   37   4.0     37      73
+Waiting:       28   36   3.9     36      72
+Total:         29   37   4.0     37      73
+
+Percentage of the requests served within a certain time (ms)
+  50%     37
+  66%     38
+  75%     38
+  80%     38
+  90%     39
+  95%     40
+  98%     47
+  99%     58
+ 100%     73 (longest request)
