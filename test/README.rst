@@ -37,10 +37,10 @@ Unprimed
 These values are basically skewed by the fact that the first request
 have to fetch the data from Facebook
 
-============== ==============
+============= ===============
 Framework      Mean req/sec   
 ============= ===============
-webob+Varish           519.15
+webob+Varnish          519.15
 bottle                 236.07
 flask                  149.99
 django                  59.51
@@ -51,10 +51,10 @@ webpy                   24.88
 Primed
 ~~~~~~~
 
-============== ==============
+============= ===============
 Framework      Mean req/sec   
 ============= ===============
-webob                 2436.18
+webob+Varnish         2436.18
 bottle                 335.19
 flask                  198.79
 django                 121.02
