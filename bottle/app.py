@@ -19,6 +19,8 @@ def index():
         cache.set(fml_endpoint, fb_data, 30 * 60)
     return template('templates/index', data = fb_data)
 
+application = bottle.default_app()
+
 if __name__ == "__main__":
     bottle.debug()
-    run(host='localhost', port=8080, reloader = True)
+    run(host='localhost', port=9001, reloader = True)

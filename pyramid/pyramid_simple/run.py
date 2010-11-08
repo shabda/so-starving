@@ -17,12 +17,15 @@ def index(request):
         
     return {'data': fb_data(fml_endpoint)}
 
+settings = {}
+settings['mako.directories'] = './templates'
+config = Configurator(settings=settings)
+config.begin()
+config.add_view(index, name='', renderer='index.mako')
+config.end()
+
+application = config.make_wsgi_app()
+
 if __name__ == '__main__':
-    settings = {}
-    settings['mako.directories'] = './templates'
-    config = Configurator(settings=settings)
-    config.begin()
-    config.add_view(index, name='', renderer='index.mako')
-    config.end()
-    app = config.make_wsgi_app()
-    serve(app, host='0.0.0.0')
+    serve(application, host='0.0.0.0')
+
