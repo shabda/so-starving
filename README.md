@@ -24,3 +24,5 @@ We have the same app in these frameworks.
 * [django](http://djangoproject.com/)
 * [web2py](http://web2py.com/)
 * [pyramid](http://docs.pylonshq.com/faq/pyramid.html)
+
+[twisted](http://twistedmatrix.com/trac/wiki/TwistedProject)
