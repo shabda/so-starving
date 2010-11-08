@@ -10,26 +10,26 @@ Server Hostname:        localhost
 Server Port:            10001
 
 Document Path:          /
-Document Length:        12855 bytes
+Document Length:        12800 bytes
 
 Concurrency Level:      1
-Time taken for tests:   5.243 seconds
+Time taken for tests:   5.030 seconds
 Complete requests:      1000
 Failed requests:        0
 Write errors:           0
-Total transferred:      13011000 bytes
-HTML transferred:       12855000 bytes
-Requests per second:    190.74 [#/sec] (mean)
-Time per request:       5.243 [ms] (mean)
-Time per request:       5.243 [ms] (mean, across all concurrent requests)
-Transfer rate:          2423.51 [Kbytes/sec] received
+Total transferred:      12956000 bytes
+HTML transferred:       12800000 bytes
+Requests per second:    198.79 [#/sec] (mean)
+Time per request:       5.030 [ms] (mean)
+Time per request:       5.030 [ms] (mean, across all concurrent requests)
+Transfer rate:          2515.17 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       1
-Processing:     4    5   2.1      5      42
-Waiting:        3    4   1.9      4      41
-Total:          4    5   2.1      5      42
+Connect:        0    0   0.1      0       3
+Processing:     3    5   1.1      5      28
+Waiting:        3    4   0.7      4      10
+Total:          3    5   1.1      5      28
 
 Percentage of the requests served within a certain time (ms)
   50%      5
@@ -39,5 +39,5 @@ Percentage of the requests served within a certain time (ms)
   90%      6
   95%      6
   98%      7
-  99%     10
- 100%     42 (longest request)
+  99%      8
+ 100%     28 (longest request)

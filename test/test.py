@@ -43,28 +43,32 @@ def abtest(url):
     return result
 
 
-SERVERS = {
-    'bottle': "bottle/app.py",
-    'django': "django/app.py",
-    'flask': "flask/app.py",
-    'pyramid': "pyramid/pyramid_simple/run.py",
-    'webpy': "webpy/main.py",
-    # Make sure you start varnish on port 10001 first
-    'webob': "webob/app.py",
-
-}
+SERVERS = (
+    #('bottle', "bottle/app.py"),
+    #('django', "django/app.py"),
+    #('flask', "flask/app.py"),
+    # pyramid keeps dying on midtest, screw it
+    #('pyramid', "pyramid/run.py"),
+    ('webpy', "webpy/main.py"),
+    # Make sure you start varnish on port 10002 first
+    ('webob', "webob/app.py"),
+)
 
 def main():
-    for framework, module_filename in SERVERS.items():
+    for framework, module_filename in SERVERS:
         if framework == "webob":
             # The webob WSGI app needs to be on port 9008 so that
             # Varnish can talk to it but apache bench will talk to the service
-            # through Varnish on port 10001
+            # through Varnish on port 10002.  It's on port 10002 so we can
+            # have it running before the test without clobbering the other
+            # servers
             port = 9008
+            uri = "http://localhost:10002/"
         else:
+            uri = "http://localhost:10001/"
             port = 10001
 
-        uri = "http://localhost:10001/"
+
 
         log.info("Starting the %s server" % (framework, ))
         server = Process(target=runserver, args=(t(module_filename), "localhost",
@@ -73,14 +77,9 @@ def main():
         server.start()
 
         # wait for everything to come up
-        if framework in ("pyramid", "webpy"):
-            log.info("Waiting 4 seconds for the server to come up")
-            time.sleep(4)
-        else:
-            log.info("Waiting 1 seconds for the server to come up")
-            time.sleep(1)
+        log.info("Waiting 5 seconds for the server to come up")
+        time.sleep(5)
 
-        raw_input("waiting...")
         log.info("Running the unprimed test")
         unprimed = abtest(uri)
         print >> sys.stderr, unprimed
@@ -98,7 +97,7 @@ def main():
 
         primed_filename = os.path.join(here, "results/primed/%s.txt"\
                                            % (framework, ))
-        unprimed_filename = os.path.join(here, "results/primed/%s.txt"
+        unprimed_filename = os.path.join(here, "results/unprimed/%s.txt"
                                          % (framework, ))
 
         with open(unprimed_filename, "w") as fh:
