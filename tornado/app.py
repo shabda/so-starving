@@ -1,21 +1,21 @@
 import tornado.httpclient
 import tornado.httpserver
 import tornado.ioloop
+import tornado.escape
 import tornado.web
 
 from werkzeug.contrib.cache import SimpleCache
 cache = SimpleCache()
 
-import urllib
-
 class MainHandler(tornado.web.RequestHandler):
+    def prepare(self):
+        self.fml_endpoint = 'http://graph.facebook.com/search?q="so%20starving&type=post'
+
     @tornado.web.asynchronous
     def get(self):
-        self.fml_endpoint = 'http://graph.facebook.com/search?q="so%20starving&type=post'
         fb_data = cache.get(key = self.fml_endpoint)
         if not fb_data:
-            http = tornado.httpclient.AsyncHTTPClient()
-            http.fetch(self.fml_endpoint, callback=self.on_response)
+            tornado.httpclient.AsyncHTTPClient().fetch(self.fml_endpoint, callback=self.on_response)
 
     def on_response(self, response):
         if response.error: raise tornado.web.HTTPError(500)
