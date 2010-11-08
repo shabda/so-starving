@@ -19,7 +19,7 @@ def index(request):
     # Render the content
     env = Environment(loader=FileSystemLoader('templates'))
     template = env.get_template("index.html")
-    body = template.render(data = fb_data)
+    body = template.render(data=fb_data)
     
     # Set the body and the cache expiration
     response = Response(body=body)

@@ -12,12 +12,12 @@ app = Bottle()
 @route('/')
 def index():
     fml_endpoint = 'http://graph.facebook.com/search?q="so%20starving&type=post'
-    fb_data = cache.get(key = fml_endpoint)
+    fb_data = cache.get(key=fml_endpoint)
     if not fb_data:
         fb_response = urllib.urlopen(fml_endpoint,).read()
         fb_data = simplejson.loads(fb_response)["data"]
         cache.set(fml_endpoint, fb_data, 30 * 60)
-    return template('templates/index', data = fb_data)
+    return template('templates/index', data=fb_data)
 
 application = bottle.default_app()
 

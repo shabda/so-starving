@@ -13,7 +13,7 @@ class MainHandler(tornado.web.RequestHandler):
 
     @tornado.web.asynchronous
     def get(self):
-        fb_data = cache.get(key = self.fml_endpoint)
+        fb_data = cache.get(key=self.fml_endpoint)
         if not fb_data:
             tornado.httpclient.AsyncHTTPClient().fetch(self.fml_endpoint, callback=self.on_response)
 

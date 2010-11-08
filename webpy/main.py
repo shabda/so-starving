@@ -13,7 +13,7 @@ urls = (
 class index:
     def GET(self):
             fml_endpoint = 'http://graph.facebook.com/search?q="so%20starving&type=post'
-            fb_data = cache.get(key = fml_endpoint)
+            fb_data = cache.get(key=fml_endpoint)
             if not fb_data:
                 fb_response = urllib.urlopen(fml_endpoint,).read()
                 fb_data = simplejson.loads(fb_response)["data"]
