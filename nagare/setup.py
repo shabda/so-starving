@@ -6,7 +6,7 @@ setup(
       name = 'so_starving',
       version = VERSION,
       author = 'Vincent Rialland',
-      author_email = 'vincent.rialland@net-ng.com',
+      author_email = 'vincent.rialland@gmail.com',
       description = 'The "I am so starving example with the Nagare framework (http://agiliq.com/blog/2010/11/i-am-so-starving-same-web-app-in-various-python-we/)',
       license = '',
       keywords = '',
