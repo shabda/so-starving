@@ -9,7 +9,7 @@ cache = SimpleCache()
 
 class SoStarving(object):
     def get_fb_data(self):
-        fml_endpoint = 'http://graph.facebook.com/search?q="fun&type=post'
+        fml_endpoint = 'http://graph.facebook.com/search?q="so%20starving&type=post'
         fb_data = cache.get(key=fml_endpoint)
         if not fb_data:
             fb_response = urllib.urlopen(fml_endpoint,).read()
