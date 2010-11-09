@@ -24,9 +24,9 @@ class MainHandler(tornado.web.RequestHandler):
         return self.render('templates/index.html', data=fb_data)
 
 
-application = tornado.web.Application([
-    (r"/", MainHandler),
-])
+handlers = [(r"/", MainHandler)]
+settings = {'debug': True}
+application = tornado.web.Application(handlers, **settings)
 
 if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
