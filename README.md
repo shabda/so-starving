@@ -18,6 +18,7 @@ We have the same app in these frameworks.
 * [itty](http://toastdriven.com/fresh/itty-sinatra-inspired-micro-framework/)
 * [tornado](http://www.tornadoweb.org/)
 * [pyroutes](http://www.pyroutes.com/)
+* [webob](http://pythonpaste.org/webob/)
 
 ### Full stack frameworks:
 
