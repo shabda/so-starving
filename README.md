@@ -1,3 +1,10 @@
+
+---------------------------------------------------------------------------
+This repo has been superceded by https://github.com/agiliq/so-starving
+---------------------------------------------------------------------------
+
+
+
 This is a set of apps which creates the same application in various 
 Python web micro-frameworks. 
 
